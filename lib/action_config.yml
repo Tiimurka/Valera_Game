@@ -6,6 +6,9 @@ work:
   mana: 30
   money: 100
   fatigue: 70
+  require:
+    max_mana: 50
+    max_fatigue: 10
 
 chill:
   info: "Созерцать природу"
@@ -24,6 +27,8 @@ go_bar:
   fatigue: 40
   health: -10
   money: -70
+  require:
+    min_money: 70 
 
 marginal_drink:
   info: "Выпить с маргинальными личностями"
@@ -34,6 +39,8 @@ marginal_drink:
   fatigue: 80
   health: -40
   money: -150
+  require:
+    min_money: 150 
 
 singing_subway:
   info: "Петь в переходе"
@@ -62,6 +69,8 @@ wine_serial:
   fatigue: 20
   health: -5
   money: -20
+  require:
+    min_money: 20 
   
 ruby_study:
   info: "Курс по руби"
@@ -72,3 +81,5 @@ ruby_study:
   fatigue: 80
   money: -200
   intellect: 1
+  require:
+    min_money: 200 

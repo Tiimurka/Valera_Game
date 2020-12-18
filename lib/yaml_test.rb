@@ -27,7 +27,7 @@ else
   puts test
 end
 
-act_w = Action.new(0)
+act_w = Action.new(0, v)
 puts act_w.name
 act_w.print_info
 
@@ -43,3 +43,4 @@ puts v.stats
 act_m.print_info
 act_m.execute
 puts v.stats
+act_w.print_info
