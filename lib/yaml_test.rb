@@ -1,5 +1,6 @@
 require 'yaml'
 require_relative 'valera'
+require_relative 'action'
 
 yaml_test = YAML.load_file('action_config.yml')
 /puts yaml_test['fun']/
@@ -19,3 +20,14 @@ while i < yaml_test.count do
 end
 
 puts v.is_death
+
+test = yaml_test['chill']['name']
+if (test == nil)
+	puts 'lolkek'
+else
+	puts test
+end
+
+act_w = Action.new(0)
+/puts act.stats/
+act_w.print_info

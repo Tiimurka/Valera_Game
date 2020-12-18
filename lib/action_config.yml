@@ -1,50 +1,74 @@
 work:
-  fun: 5
+  info: "Пойти на работу"
+  message: "msg_work"
+  help: "help_work"
+  fun: -5
   mana: 30
   money: 100
   fatigue: 70
 
 chill:
-  mana: 10
+  info: "Созерцать природу"
+  message: "msg_chill"
+  help: "help_chill"
+  mana: -10
   fun: 1
-  fatigue: 10
+  fatigue: -10
 
 go_bar:
+  info: "Пойти в бар"
+  message: "msg_bar"
+  help: "help_bar"
   fun: 3
   mana: 60
   fatigue: 40
-  health: 10
-  money: 70
+  health: -10
+  money: -70
 
 marginal_drink:
+  info: "Выпить с маргинатьными личностями"
+  message: "msg_md"
+  help: "help_md"
   fun: 10
   mana: 80
   fatigue: 80
-  health: 40
-  money: 150
+  health: -40
+  money: -150
 
 singing_subway:
+  info: "Петь в переходе"
+  message: "msg_sb"
+  help: "help_sb"
   fun: 1
   mana: 10
   fatigue: 20
   money: 10
 
 sleep:
-  fun: 1
-  mana: 50
+  info: "Спать"
+  message: "msg_sl"
+  help: "help_sl"
+  fun: -1
+  mana: -50
   fatigue: 70
   health: 10
   
 wine_serial:
+  info: "Пить вино и смотреть сериал"
+  message: "msg_ws"
+  help: "help_ws"
   fun: 1
   mana: 30
   fatigue: 20
-  health: 5
-  money: 20
+  health: -5
+  money: -20
   
 ruby_study:
-  fun: 15
-  mana: 100
+  info: "Курс по руби"
+  message: "msg_rb"
+  help: "help_rb"
+  fun: -15
+  mana: -100
   fatigue: 80
-  money: 200
+  money: -200
   intellect: 1
