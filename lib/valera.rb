@@ -7,5 +7,4 @@ class Valera
     @stats = YAML.safe_load(File.read(path_to_config))[level]
     @is_death = false
   end
-  
 end
