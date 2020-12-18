@@ -20,14 +20,13 @@ RSpec.describe Action do
     test = Action.new(1, nil, './lib/action_config.yml')
     it { expect { test.print_info }.to output("2: Созерцать природу\n").to_stdout }
   end
-  
+
   describe 'Checking execute' do
     valera = Valera.new('start', './lib/start_config.yml')
-	test = Action.new(3, valera, './lib/action_config.yml')
-	test.execute
-	it {
-	  expect(valera.stats['health'].should(eql(60)))
-	}
+    test = Action.new(3, valera, './lib/action_config.yml')
+    test.execute
+    it {
+      expect(valera.stats['health'].should(eql(60)))
+    }
   end
-  
 end

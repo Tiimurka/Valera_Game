@@ -9,7 +9,7 @@ class Action
     @name = @stats.keys[num]
     @stats = @stats[@stats.keys[num]]
     @num = num
-	@target = target
+    @target = target
   end
 
   def print_info
@@ -17,26 +17,17 @@ class Action
     info = @name if info.nil?
     puts "#{@num + 1}: #{info}"
   end
-  
-  def execute
-    if @stats['health'] != nil
-      @target.stats['health'] += @stats['health']
-    end
-	if @stats['mana'] != nil
-      @target.stats['mana'] += @stats['mana']
-    end
-    if @stats['fun'] != nil
-      @target.stats['fun'] += @stats['fun']
-    end
-	if @stats['money'] != nil
-      @target.stats['money'] += @stats['money']
-    end
-	if @stats['fatigue'] != nil
-      @target.stats['fatigue'] += @stats['fatigue']
-    end
-	if @stats['intellect'] != nil
-      @target.stats['intellect'] += @stats['intellect']
-    end
+
+  def changer(param)
+    @target.stats[param] += @stats[param] unless @stats[param].nil?
   end
-  
+
+  def execute
+    changer('health')
+    changer('mana')
+    changer('fun')
+    changer('money')
+    changer('fatigue')
+    changer('intellect')
+  end
 end
