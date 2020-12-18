@@ -30,3 +30,16 @@ end
 act_w = Action.new(0)
 puts act_w.name
 act_w.print_info
+
+i = 0
+while i < yaml_test.count
+  printer = Action.new(i)
+  printer.print_info
+  i += 1
+end
+
+act_m = Action.new(3, v)
+puts v.stats
+act_m.print_info
+act_m.execute
+puts v.stats
