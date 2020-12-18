@@ -1,0 +1,8 @@
+start:
+  health: 100
+  mana: 0
+  fun: 30
+  money: 400
+  fatigue: 0
+  intellect: 0
+
