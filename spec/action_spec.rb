@@ -9,10 +9,10 @@ RSpec.describe Action do
       expect(test.stats['info'].should(eq('Пойти на работу')))
       expect(test.stats['message'].should(eq('msg_work')))
       expect(test.stats['help'].should(eq('help_work')))
-      expect(test.stats['fun'].should(eql(-5)))
-      expect(test.stats['mana'].should(eql(30)))
-      expect(test.stats['money'].should(eql(100)))
-      expect(test.stats['fatigue'].should(eql(70)))
+      expect(test.params['fun'].should(eql(-5)))
+      expect(test.params['mana'].should(eql(30)))
+      expect(test.params['money'].should(eql(100)))
+      expect(test.params['fatigue'].should(eql(70)))
     }
   end
 

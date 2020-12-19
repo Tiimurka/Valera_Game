@@ -1,7 +1,7 @@
 require_relative 'valera'
 
 class Action
-  attr_accessor :stats
+  attr_accessor :stats, :params
   attr_reader :name
 
   def initialize(num, target = nil, path_to_config = 'action_config.yml')
@@ -11,6 +11,7 @@ class Action
     @num = num
     @target = target
     @require = @stats['require']
+    @params = @stats['parameters']
   end
 
   def print_info
@@ -41,7 +42,7 @@ class Action
   end
 
   def changer(param)
-    @target.stats[param] += @stats[param] unless @stats[param].nil?
+    @target.stats[param] += @params[param] unless @params[param].nil?
   end
 
   def execute
