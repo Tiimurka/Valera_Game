@@ -19,10 +19,6 @@ class Action
     puts "#{@num + 1}: #{info}" + (check_require ? '' : ' (невозможно)')
   end
 
-  def changer(param)
-    @target.stats[param] += @stats[param] unless @stats[param].nil?
-  end
-
   def check_min(param)
     return true if @require[param].nil?
 
@@ -70,6 +66,10 @@ class Action
     true
   end
 
+  def changer(param)
+    @target.stats[param] += @stats[param] unless @stats[param].nil?
+  end
+
   def execute
     return unless check_require
 
@@ -79,5 +79,6 @@ class Action
     changer('money')
     changer('fatigue')
     changer('intellect')
+    @target&.check_limits
   end
 end

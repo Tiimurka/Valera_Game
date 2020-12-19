@@ -1,0 +1,31 @@
+health:
+  max:
+    amount: 100
+  min:
+    amount: 0
+    death: "Здоровье подвело Валеру..."
+mana:
+  max:
+    amount: 100
+    death: "Валера переполнился маной и вознесся на небеса!"
+  min:
+    amount: 0
+fun:
+  min:
+    amount: -10
+    death: "Валере стало скучно и он решил полетать..."
+money:
+  min:
+    amount: 0
+fatigue:
+  max:
+    amount: 100
+    death: "Валера заснул и не проснулся..."
+  min:
+    amount: 0
+intellect:
+  max:
+    amount: 2
+    death: "Валера перестал быть маргиналом и стал Руби-программистом! Но это уже совсем другая история..."
+  min:
+    amount: 0

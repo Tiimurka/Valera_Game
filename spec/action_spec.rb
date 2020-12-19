@@ -17,7 +17,7 @@ RSpec.describe Action do
   end
 
   describe 'Checking print_info' do
-    valera = Valera.new('start', './lib/start_config.yml')
+    valera = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
     test1 = Action.new(0, nil, './lib/action_config.yml')
     test2 = Action.new(0, valera, './lib/action_config.yml')
     test2.execute
@@ -28,8 +28,8 @@ RSpec.describe Action do
   end
 
   describe 'Checking execute' do
-    valera1 = Valera.new('start', './lib/start_config.yml')
-    valera2 = Valera.new('start', './lib/start_config.yml')
+    valera1 = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
+    valera2 = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
     test1 = Action.new(3, valera1, './lib/action_config.yml')
     test2 = Action.new(0, valera2, './lib/action_config.yml')
     test1.execute
@@ -42,8 +42,8 @@ RSpec.describe Action do
   end
 
   describe 'Checking require' do
-    valera = Valera.new('start', './lib/start_config.yml')
-    valera1 = Valera.new('start', './lib/start_config.yml')
+    valera = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
+    valera1 = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
     test1 = Action.new(3, valera, './lib/action_config.yml')
     test1.execute
     test2 = Action.new(0, valera, './lib/action_config.yml')

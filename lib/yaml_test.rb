@@ -44,3 +44,6 @@ act_m.print_info
 act_m.execute
 puts v.stats
 act_w.print_info
+act_r = Action.new(7, v)
+act_r.execute
+v.print_death_message if v.is_death == true
