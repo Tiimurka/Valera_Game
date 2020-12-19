@@ -19,51 +19,25 @@ class Action
     puts "#{@num + 1}: #{info}" + (check_require ? '' : ' (невозможно)')
   end
 
-  def check_min(param)
-    return true if @require[param].nil?
+  def check_require_node(param, node)
+    return false if !node['max'].nil? && @target.stats[param] > node['max']
+    return false if !node['min'].nil? && @target.stats[param] < node['min']
 
-    stat = param.dup
-    stat[0] = ''
-    stat[0] = ''
-    stat[0] = ''
-    stat[0] = ''
-    return false if @target.stats[stat] < @require[param]
-  end
-
-  def check_max(param)
-    return true if @require[param].nil?
-
-    stat = param.dup
-    stat[0] = ''
-    stat[0] = ''
-    stat[0] = ''
-    stat[0] = ''
-    return false if @target.stats[stat] > @require[param]
-  end
-
-  def check_max_req
-    return false if check_max('max_health') == false ||
-                    check_max('max_mana') == false ||
-                    check_max('max_fun') == false ||
-                    check_max('max_money') == false ||
-                    check_max('max_fatigue') == false ||
-                    check_max('max_intellect') == false
-  end
-
-  def check_min_req
-    return false if check_min('min_health') == false ||
-                    check_min('min_mana') == false ||
-                    check_min('min_fun') == false ||
-                    check_min('min_money') == false ||
-                    check_min('min_fatigue') == false ||
-                    check_min('min_intellect') == false
+    true
   end
 
   def check_require
     return true if @require.nil? || @target.nil?
-    return false if check_min_req == false || check_max_req == false
 
-    true
+    i = 0
+    res = true
+    while i < @require.count
+      param = @require.keys[i]
+      node = @require[param]
+      res = check_require_node(param, node)
+      i += 1
+    end
+    res
   end
 
   def changer(param)
