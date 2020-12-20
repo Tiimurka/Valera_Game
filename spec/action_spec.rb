@@ -22,11 +22,15 @@ RSpec.describe Action do
     test2 = Action.new(0, valera, './lib/action_config.yml')
     test2.execute
     test2.stats['message'] = nil
+    test3 = Action.new(0, nil, './lib/action_config.yml')
     it {
       expect { test1.print_info }.to output("1: Пойти на работу\n").to_stdout
       expect { test1.print_message }.to output("msg_work\n").to_stdout
       expect { test2.print_info }.to output("1: Пойти на работу (невозможно)\n").to_stdout
       expect { test2.print_message }.to output("work_msg\n").to_stdout
+      expect { test3.print_help }.to output("1: Пойти на работу\nhelp_work\nЖизнерадостность -5, Мана +30, "\
+    "Деньги +100, Усталость +70, \n"\
+    "Для выполнения необходимо: Мана меньше чем 50, Усталость меньше чем 10,\n").to_stdout
     }
   end
 

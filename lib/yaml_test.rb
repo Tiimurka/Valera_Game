@@ -50,3 +50,6 @@ v.print_death_message if v.is_death == true
 act_r.print_message
 act_r.stats['message'] = nil
 act_r.print_message
+act_r.print_help
+act_w.print_help
+Action.new(4).print_help

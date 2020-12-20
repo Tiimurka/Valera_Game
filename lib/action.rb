@@ -1,4 +1,5 @@
 require_relative 'valera'
+require_relative 'dictionary'
 
 class Action
   attr_accessor :stats, :params
@@ -24,6 +25,46 @@ class Action
     msg = @stats['message']
     msg = "#{@name}_msg" if msg.nil?
     puts msg
+  end
+
+  def print_help1
+    print_info
+    help = @stats['help']
+    help = "#{@name}_help" if help.nil?
+    puts help
+    i = 0
+    while i < @params.count
+      param = @params.keys[i]
+      print "#{DICTIONARY[param] || param} " + ((@params[param]).positive? ? '+' : '') + "#{@params[param]}, "
+      i += 1
+    end
+    puts
+  end
+
+  def print_help2_piece(param, node)
+    print ' '
+    print DICTIONARY[param] || param
+    print " меньше чем #{node['max']}," unless node['max'].nil?
+    print " больше чем #{node['min']}," unless node['min'].nil?
+  end
+
+  def print_help2
+    print 'Для выполнения необходимо:'
+    i = 0
+    while i < @require.count
+      param = @require.keys[i]
+      node = @require[param]
+      print_help2_piece(param, node)
+      i += 1
+    end
+    puts
+  end
+
+  def print_help
+    print_help1
+    return if @require.nil?
+
+    print_help2
   end
 
   def check_require_node(param, node)
