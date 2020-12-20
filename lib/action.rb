@@ -95,12 +95,11 @@ class Action
   def execute
     return unless check_require
 
-    changer('health')
-    changer('mana')
-    changer('fun')
-    changer('money')
-    changer('fatigue')
-    changer('intellect')
+    i = 0
+    while i < @params.count
+      changer(@params.keys[i])
+      i += 1
+    end
     @target&.check_limits
   end
 end
