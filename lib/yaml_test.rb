@@ -47,3 +47,6 @@ act_w.print_info
 act_r = Action.new(7, v)
 act_r.execute
 v.print_death_message if v.is_death == true
+act_r.print_message
+act_r.stats['message'] = nil
+act_r.print_message

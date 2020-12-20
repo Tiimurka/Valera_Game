@@ -20,6 +20,12 @@ class Action
     puts "#{@num + 1}: #{info}" + (check_require ? '' : ' (невозможно)')
   end
 
+  def print_message
+    msg = @stats['message']
+    msg = "#{@name}_msg" if msg.nil?
+    puts msg
+  end
+
   def check_require_node(param, node)
     return false if !node['max'].nil? && @target.stats[param] > node['max']
     return false if !node['min'].nil? && @target.stats[param] < node['min']
