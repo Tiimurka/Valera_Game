@@ -5,6 +5,7 @@ start:
   money: 400
   fatigue: 0
   intellect: 0
+  wow: 0
 
 test:
   health: 1

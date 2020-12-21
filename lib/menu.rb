@@ -41,9 +41,10 @@ class Menu
   end
 
   def choice_handler_actions(choice)
+    check = Action.new(choice, @target).check_require
     Action.new(choice, @target).execute
     system('reset')
-    Action.new(choice).print_message if Action.new(choice, @target).check_require == true
+    Action.new(choice).print_message if check == true
   end
 
   def choice_handler(cho)

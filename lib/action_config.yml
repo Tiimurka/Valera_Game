@@ -102,3 +102,6 @@ ruby_study:
     money:
       min: 200
 
+test:
+  parameters:
+    wow: 1
