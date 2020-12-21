@@ -71,7 +71,7 @@ sleep:
   parameters:
     fun: -1
     mana: -50
-    fatigue: 70
+    fatigue: -70
     health: 10
   
 wine_serial:

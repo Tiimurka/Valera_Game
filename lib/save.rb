@@ -12,6 +12,7 @@ class Save
   end
 
   def self.enter_filename
+    print 'Введите название сохраненияы'
     gets.chomp.to_s
   end
 end

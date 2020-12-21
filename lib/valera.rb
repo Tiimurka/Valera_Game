@@ -19,8 +19,8 @@ class Valera
   end
 
   def check_limit_node(param, node)
-    limit_correction('max', param, node) if !node['max'].nil? && @stats[param] > node['max']['amount']
-    limit_correction('min', param, node) if !node['min'].nil? && @stats[param] < node['min']['amount']
+    limit_correction('max', param, node) if !node['max'].nil? && @stats[param] >= node['max']['amount']
+    limit_correction('min', param, node) if !node['min'].nil? && @stats[param] <= node['min']['amount']
   end
 
   def check_limits

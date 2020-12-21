@@ -4,6 +4,8 @@ require_relative 'valera'
 require_relative 'action'
 require_relative 'save'
 require_relative 'load'
+require_relative 'menu'
+require_relative 'dictionary'
 
 yaml_test = YAML.load_file('action_config.yml')
 puts yaml_test.count
@@ -17,7 +19,7 @@ print "\nВывод списка действий\n"
 i = 0
 configure = YAML.load_file('action_config.yml')
 while i < configure.count
-  Action.new(i).print_info
+  Action.new(i).print_help
   i += 1
 end
 print "Вывод списка действий закончен\n\n"
@@ -84,10 +86,27 @@ Action.new(4).print_help
 # File.open("test.json", 'w') do |f|
 #   f.write(valeron.stats.to_json)
 # end
-
-print "Тест загрузки\n"
-valeron2 = Valera.new
-name_load = Load.enter_filename
-Load.new(name_load).load_file(valeron2)
-# valeron2.stats = JSON.parse(File.read("test.json"))
-puts valeron2.stats
+system('reset')
+valeron = Valera.new
+# name_load = Load.enter_filename
+# Load.new(name_load).load_file(valeron2)
+# # valeron2.stats = JSON.parse(File.read("test.json"))
+# puts valeron2.stats
+# print "\n\nTest menu\n\n"
+Menu.new(valeron).print_stats
+# Menu.new(valeron).print_options
+# menu = Menu.new(valeron)
+# menu.choice_handler(0)
+# menu.print_stats
+# menu.print_options
+# # menu.choice_handler(9)
+# menu.choice_handler(11)
+# puts"azazazaz"
+# m = Menu.new(valeron)
+# while valeron.is_death == false
+#   m.print_stats
+#   m.print_options
+#   choice = gets.chomp.to_i
+#   m.choice_handler(choice)
+# end
+# valeron.print_death_message
