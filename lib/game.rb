@@ -1,6 +1,4 @@
 require 'io/console'
-# require_relative 'dictionary'
-# require_relative 'action'
 require_relative 'load'
 require_relative 'valera'
 require_relative 'menu'
@@ -14,6 +12,7 @@ class Game
     while @valera.is_death == false
       menu.print_stats
       menu.print_options
+      action_selection
       choice = gets.chomp.to_i
       menu.choice_handler(choice)
     end
@@ -21,9 +20,16 @@ class Game
   end
 
   def print_start_menu
-    print "1: Новая игра\n"
-    print "2: Загрузить игру\n"
-    print "3: Выход\n"
+    puts '|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|'
+    puts "| 1. Новая игра\t    |"
+    puts '| 2. Загрузить игру |'
+    puts "| 3. Выход\t    |"
+    puts '|___________________|'
+  end
+
+  def action_selection
+    print "\n|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"
+    print "\n| Выберите действие: "
   end
 
   def choice_handler(choice)
@@ -38,6 +44,7 @@ class Game
     else
       system('reset')
       print_start_menu
+      action_selection
       choice = gets.chomp.to_i
       choice_handler(choice)
     end

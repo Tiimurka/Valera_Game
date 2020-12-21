@@ -13,12 +13,14 @@ class Menu
   end
 
   def print_stats
+    puts '|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾'
     i = 0
     while i < @target.stats.count
       param = @target.stats.keys[i]
-      puts "#{DICTIONARY[param] || param}: #{@target.stats[param]}"
+      puts "| #{DICTIONARY[param] || param}: #{@target.stats[param]}"
       i += 1
     end
+    puts "|________________________\n\n"
   end
 
   def print_options
