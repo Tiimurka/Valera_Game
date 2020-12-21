@@ -52,9 +52,16 @@ class Menu
   def help
     system('reset')
     print_help_actions
+    print_save_exit
     print "\t\tНажмите любую клавишу для выхода в меню"
     $stdin.getch
     system('reset')
+  end
+
+  def print_save_exit
+    puts "#{@save_num + 1}: Сохранить игру\n\t"\
+      "Вводится название сохранения, затем по этому названию можно загрузиться в начальном меню\n\n"\
+      "#{@exit_num + 1}: Выход\n\tЗавершение игры (БЕЗ СОХРАНЕНИЯ!)"
   end
 
   def choice_handler(cho)
