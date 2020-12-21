@@ -4,7 +4,7 @@ require_relative 'action'
 require_relative 'save'
 
 class Menu
-  def initialize(target = nil, path_to_config = 'action_config.yml')
+  def initialize(target = nil, path_to_config = 'lib/action_config.yml')
     @config = YAML.load_file(path_to_config)
     @help_num = @config.count
     @save_num = @config.count + 1

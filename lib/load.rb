@@ -1,7 +1,7 @@
 require 'json'
 
 class Load
-  def initialize(file_name, folder = './../saves/')
+  def initialize(file_name, folder = './saves/')
     @file = File.read("#{folder}#{file_name}.json")
   end
 
@@ -12,9 +12,9 @@ class Load
 
   def self.enter_filename
     files = []
-    Dir['./../saves/**/*.json'].each_with_index do |item, index|
+    Dir['./saves/**/*.json'].each_with_index do |item, index|
       files[index] = item
-      puts "#{index + 1}) #{item.sub!('.json', '').sub!('./../saves/', '')}"
+      puts "#{index + 1}) #{item.sub!('.json', '').sub!('./saves/', '')}"
     end
     filename = gets.chomp.to_s
     unless files.include?(filename.to_s)
