@@ -22,9 +22,10 @@ class Action
   end
 
   def print_message
-    msg = @stats['message']
-    msg = "#{@name}_msg" if msg.nil?
-    puts msg
+    info = @stats['info']
+    msg = "Предыдущее действие: #{@stats['info']}" unless info.nil?
+    msg = "Предыдущее действие: #{@name}" if msg.nil?
+    puts "#{msg}\n\n"
   end
 
   def print_help1

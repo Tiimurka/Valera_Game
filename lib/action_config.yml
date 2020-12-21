@@ -1,6 +1,5 @@
 work:
   info: "Пойти на работу"
-  message: "msg_work"
   help: "help_work"
   parameters:
     fun: -5
@@ -15,7 +14,6 @@ work:
 
 chill:
   info: "Созерцать природу"
-  message: "msg_chill"
   help: "help_chill"
   parameters:
     mana: -10
@@ -24,7 +22,6 @@ chill:
 
 go_bar:
   info: "Пойти в бар"
-  message: "msg_bar"
   help: "help_bar"
   parameters:
     fun: 3
@@ -38,7 +35,6 @@ go_bar:
 
 marginal_drink:
   info: "Выпить с маргинальными личностями"
-  message: "msg_md"
   help: "help_md"
   parameters:
     fun: 10
@@ -52,7 +48,6 @@ marginal_drink:
 
 singing_subway:
   info: "Петь в переходе"
-  message: "msg_sb"
   help: "help_sb"
   parameters:
     fun: 1
@@ -66,7 +61,6 @@ singing_subway:
 
 sleep:
   info: "Спать"
-  message: "msg_sl"
   help: "help_sl"
   parameters:
     fun: -1
@@ -76,7 +70,6 @@ sleep:
   
 wine_serial:
   info: "Пить вино и смотреть сериал"
-  message: "msg_ws"
   help: "help_ws"
   parameters:
     fun: 1
@@ -90,7 +83,6 @@ wine_serial:
   
 ruby_study:
   info: "Курс по руби"
-  message: "msg_rb"
   help: "help_rb"
   parameters:
     fun: -15
