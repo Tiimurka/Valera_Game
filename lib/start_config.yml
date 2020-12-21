@@ -6,3 +6,11 @@ start:
   fatigue: 0
   intellect: 0
 
+test:
+  health: 1
+  mana: 1
+  fun: 1
+  money: 1
+  fatigue: 1
+  intellect: 1
+

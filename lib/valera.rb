@@ -3,8 +3,8 @@ require 'yaml'
 class Valera
   attr_accessor :stats, :is_death, :limits, :msg
 
-  def initialize(level = 'start', path_to_config = 'start_config.yml', path_to_limits = 'limits_config.yml')
-    @stats = YAML.load_file(path_to_config)[level]
+  def initialize(start = 'start', path_to_config = 'start_config.yml', path_to_limits = 'limits_config.yml')
+    @stats = YAML.load_file(path_to_config)[start]
     @limits = YAML.load_file(path_to_limits)
     @is_death = false
     @msg = nil
