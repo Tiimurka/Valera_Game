@@ -29,14 +29,16 @@ class Action
   end
 
   def print_help1
+    # puts ''
     print_info
-    help = @stats['help']
-    help = "#{@name}_help" if help.nil?
-    puts help
+    # help = @stats['help']
+    # help = "#{@name}_help" if help.nil?
+    # puts help
+    print "\t"
     i = 0
     while i < @params.count
       param = @params.keys[i]
-      print "#{DICTIONARY[param] || param} " + ((@params[param]).positive? ? '+' : '') + "#{@params[param]}, "
+      print "#{DICTIONARY[param] || param} " + ((@params[param]).positive? ? '+' : '') + "#{@params[param]}  "
       i += 1
     end
     puts
@@ -50,7 +52,7 @@ class Action
   end
 
   def print_help2
-    print 'Для выполнения необходимо:'
+    print "\t\tДля выполнения необходимо: "
     i = 0
     while i < @require.count
       param = @require.keys[i]
@@ -63,9 +65,12 @@ class Action
 
   def print_help
     print_help1
-    return if @require.nil?
-
+    if @require.nil?
+      puts
+      return
+    end
     print_help2
+    puts
   end
 
   def check_require_node(param, node)

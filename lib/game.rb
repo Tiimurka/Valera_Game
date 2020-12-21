@@ -12,7 +12,7 @@ class Game
     while @valera.is_death == false
       menu.print_stats
       menu.print_options
-      action_selection
+      message_action_selection
       choice = gets.chomp.to_i
       menu.choice_handler(choice)
     end
@@ -27,7 +27,7 @@ class Game
     puts '|___________________|'
   end
 
-  def action_selection
+  def message_action_selection
     print "\n|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"
     print "\n| Выберите действие: "
   end
@@ -44,7 +44,7 @@ class Game
     else
       system('reset')
       print_start_menu
-      action_selection
+      message_action_selection
       choice = gets.chomp.to_i
       choice_handler(choice)
     end

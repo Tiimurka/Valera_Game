@@ -34,7 +34,7 @@ class Menu
     print "#{@exit_num + 1}: Выход\n"
   end
 
-  def print_help
+  def print_help_actions
     i = 0
     while i < @config.count
       Action.new(i, @target).print_help
@@ -49,22 +49,27 @@ class Menu
     Action.new(choice).print_message if check == true
   end
 
+  def help
+    system('reset')
+    print_help_actions
+    print "\t\tНажмите любую клавишу для выхода в меню"
+    $stdin.getch
+    system('reset')
+  end
+
   def choice_handler(cho)
     choice = cho - 1
     if choice < @config.count
       choice_handler_actions(choice)
     elsif choice == @help_num
-      system('reset')
-      print_help
-      print 'Press any key'
-      $stdin.getch
-      system('reset')
+      help
     elsif choice == @save_num
       save = Save.new(@target)
       file_name = Save.enter_filename
       save.create_save(file_name)
     elsif choice == @exit_num
       exit
+
     end
   end
 end
