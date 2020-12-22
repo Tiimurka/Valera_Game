@@ -66,7 +66,7 @@ class Menu
 
   def choice_handler(cho)
     choice = cho - 1
-    if choice > 0 && choice < @config.count
+    if choice.positive? && choice < @config.count
       choice_handler_actions(choice)
     elsif choice == @help_num
       help
@@ -76,7 +76,7 @@ class Menu
       save.create_save(file_name)
     elsif choice == @exit_num
       exit
-	else
+    else
       system('reset')
     end
   end

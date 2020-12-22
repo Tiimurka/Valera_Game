@@ -15,6 +15,6 @@ class Save
     print 'Введите название сохранения: '
     name = gets.chomp.to_s
     system('reset')
-	return name
+    name
   end
 end

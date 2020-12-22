@@ -2,6 +2,7 @@ require 'io/console'
 require_relative 'load'
 require_relative 'valera'
 require_relative 'menu'
+require_relative 'start_menu'
 
 class Game
   def initialize
@@ -17,14 +18,6 @@ class Game
       menu.choice_handler(choice)
     end
     @valera.print_death_message
-  end
-
-  def print_start_menu
-    puts '|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|'
-    puts "| 1. Новая игра\t    |"
-    puts '| 2. Загрузить игру |'
-    puts "| 3. Выход\t    |"
-    puts '|___________________|'
   end
 
   def message_action_selection
