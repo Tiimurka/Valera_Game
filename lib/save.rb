@@ -5,7 +5,7 @@ class Save
     @stats = target.stats
   end
 
-  def create_save(path, folder = './../saves/')
+  def create_save(path, folder = './saves/')
     File.open("#{folder}#{path}.json", 'w') do |f|
       f.write(@stats.to_json)
     end
@@ -13,7 +13,8 @@ class Save
 
   def self.enter_filename
     print 'Введите название сохранения: '
-    gets.chomp.to_s
+    name = gets.chomp.to_s
     system('reset')
+	return name
   end
 end
