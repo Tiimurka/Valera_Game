@@ -8,10 +8,10 @@ RSpec.describe Action do
    " 3. Выход	    |\n|___________________|\n").to_stdout
     }
   end
-  
+
   describe 'Checking dictionary' do
     it {
-	  expect(DICTIONARY['intellect'].should(eql('Интеллект')))
-	}
+      expect(DICTIONARY['intellect'].should(eql('Интеллект')))
+    }
   end
 end
