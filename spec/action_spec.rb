@@ -9,7 +9,7 @@ RSpec.describe Action do
       expect(test.stats['info'].should(eq('Пойти на работу')))
       # expect(test.stats['help'].should(eq('help_work')))
       expect(test.params['fun'].should(eql(-5)))
-      expect(test.params['mana'].should(eql(30)))
+      expect(test.params['mana'].should(eql(-30)))
       expect(test.params['money'].should(eql(100)))
       expect(test.params['fatigue'].should(eql(70)))
     }
@@ -27,7 +27,7 @@ RSpec.describe Action do
       expect { test1.print_message }.to output("Предыдущее действие: Пойти на работу\n\n").to_stdout
       expect { test2.print_info }.to output("1: Пойти на работу (невозможно)\n").to_stdout
       expect { test2.print_message }.to output("Предыдущее действие: Пойти на работу\n\n").to_stdout
-      expect { test3.print_help }.to output("1: Пойти на работу\n\tЖизнерадостность -5  Мана +30  "\
+      expect { test3.print_help }.to output("1: Пойти на работу\n\tЖизнерадостность -5  Мана -30  "\
         "Деньги +100  Усталость +70  \n"\
         "\t\tДля выполнения необходимо:  Мана меньше чем 50, Усталость меньше чем 10,\n\n").to_stdout
     }

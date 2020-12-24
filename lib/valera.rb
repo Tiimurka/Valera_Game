@@ -24,14 +24,10 @@ class Valera
   end
 
   def check_limits
-    i = 0
-    while i < @limits.count
-      param = @limits.keys[i]
-      node = @limits[param]
-      check_limit_node(param, node)
-      return if @is_death == true
-
-      i += 1
+    @limits.each do |key, value|
+      param = key
+      check_limit_node(param, value)
+      break if @is_death == true
     end
   end
 

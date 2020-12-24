@@ -24,10 +24,8 @@ class Menu
   end
 
   def print_options
-    i = 0
-    while i < @config.count
+    (0..@config.count - 1).each do |i|
       Action.new(i, @target).print_info
-      i += 1
     end
     print "#{@help_num + 1}: Помощь\n"
     print "#{@save_num + 1}: Сохранить игру\n"
@@ -35,10 +33,8 @@ class Menu
   end
 
   def print_help_actions
-    i = 0
-    while i < @config.count
+    (0..@config.count - 1).each do |i|
       Action.new(i, @target).print_help
-      i += 1
     end
   end
 

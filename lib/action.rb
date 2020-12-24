@@ -35,11 +35,8 @@ class Action
     # help = "#{@name}_help" if help.nil?
     # puts help
     print "\t"
-    i = 0
-    while i < @params.count
-      param = @params.keys[i]
-      print "#{DICTIONARY[param] || param} " + ((@params[param]).positive? ? '+' : '') + "#{@params[param]}  "
-      i += 1
+    @params.each do |key, value|
+      print "#{DICTIONARY[key] || key} " + (value.positive? ? '+' : '') + "#{value}  "
     end
     puts
   end
@@ -83,13 +80,9 @@ class Action
   def check_require
     return true if @require.nil? || @target.nil?
 
-    i = 0
     res = true
-    while i < @require.count
-      param = @require.keys[i]
-      node = @require[param]
-      res = check_require_node(param, node)
-      i += 1
+    @require.each do |key, value|
+      res = check_require_node(key, value)
     end
     res
   end
@@ -101,10 +94,8 @@ class Action
   def execute
     return unless check_require
 
-    i = 0
-    while i < @params.count
-      changer(@params.keys[i])
-      i += 1
+    @params.each do |key, _value|
+      changer(key)
     end
     @target&.check_limits
   end
