@@ -6,6 +6,7 @@ start:
   fatigue: 0
   intellect: 0
   wow: 0
+  lol: 0
 
 test:
   health: 1

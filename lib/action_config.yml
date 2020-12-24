@@ -16,7 +16,7 @@ chill:
   parameters:
     mana: -10
     fun: 1
-    fatigue: -10
+    fatigue: 10
 
 go_bar:
   info: "Пойти в бар"
@@ -89,3 +89,8 @@ ruby_study:
 test:
   parameters:
     wow: 1
+    
+olololol:
+  parameters:
+    lol: 1
+    mana: 5

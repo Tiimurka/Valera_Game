@@ -43,10 +43,11 @@ class Menu
   end
 
   def choice_handler_actions(choice)
-    check = Action.new(choice, @target).check_require
-    Action.new(choice, @target).execute
+    act = Action.new(choice, @target)
+    check = act.check_require
+    act.execute
     system('reset')
-    Action.new(choice).print_message if check == true
+    act.print_message if check == true
   end
 
   def help
@@ -66,7 +67,7 @@ class Menu
 
   def choice_handler(cho)
     choice = cho - 1
-    if choice.positive? && choice < @config.count
+    if choice >= 0 && choice < @config.count
       choice_handler_actions(choice)
     elsif choice == @help_num
       help
