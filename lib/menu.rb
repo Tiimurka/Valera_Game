@@ -4,8 +4,8 @@ require_relative 'action'
 require_relative 'save'
 
 class Menu
-  def initialize(target = nil, path_to_config = 'lib/action_config.yml')
-    @config = YAML.load_file(path_to_config)
+  def initialize(config, target = nil)
+    @config = config
     @help_num = @config.count
     @save_num = @config.count + 1
     @exit_num = @config.count + 2
@@ -14,18 +14,15 @@ class Menu
 
   def print_stats
     puts '|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾'
-    i = 0
-    while i < @target.stats.count
-      param = @target.stats.keys[i]
-      puts "| #{DICTIONARY[param] || param}: #{@target.stats[param]}"
-      i += 1
+	@target.stats.each do |key, value|
+      puts "| #{DICTIONARY[key] || key}: #{value}"
     end
     puts "|________________________\n\n"
   end
 
   def print_options
     (0..@config.count - 1).each do |i|
-      Action.new(i, @target).print_info
+      Action.new(i, @config, @target).print_info
     end
     print "#{@help_num + 1}: Помощь\n"
     print "#{@save_num + 1}: Сохранить игру\n"
@@ -34,12 +31,12 @@ class Menu
 
   def print_help_actions
     (0..@config.count - 1).each do |i|
-      Action.new(i, @target).print_help
+      Action.new(i, @config, @target).print_help
     end
   end
 
   def choice_handler_actions(choice)
-    act = Action.new(choice, @target)
+    act = Action.new(choice, @config, @target)
     check = act.check_require
     act.execute
     system('reset')

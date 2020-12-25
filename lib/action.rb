@@ -5,10 +5,9 @@ class Action
   attr_accessor :stats, :params
   attr_reader :name
 
-  def initialize(num, target = nil, path_to_config = 'lib/action_config.yml')
-    @stats = YAML.load_file(path_to_config)
-    @name = @stats.keys[num]
-    @stats = @stats[@stats.keys[num]]
+  def initialize(num, config, target = nil)
+    @name = config.keys[num]
+    @stats = config[@name]
     @num = num
     @target = target
     @require = @stats['require']

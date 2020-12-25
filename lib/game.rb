@@ -3,13 +3,15 @@ require_relative 'load'
 require_relative 'valera'
 require_relative 'menu'
 require_relative 'start_menu'
+require_relative 'config_loader'
 
 class Game
   def initialize
-    @valera = Valera.new
+    loader = ConfigLoader.new('lib/action_config.yml', 'lib/start_config.yml', 'lib/limits_config.yml')
+    @valera = Valera.new(loader.start, loader.limits)
     choice_handler(0)
     system('reset')
-    menu = Menu.new(@valera)
+    menu = Menu.new(loader.actions, @valera)
     while @valera.is_death == false
       menu.print_stats
       menu.print_options
