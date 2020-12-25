@@ -14,7 +14,7 @@ class Menu
 
   def print_stats
     puts '|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾'
-	@target.stats.each do |key, value|
+    @target.stats.each do |key, value|
       puts "| #{DICTIONARY[key] || key}: #{value}"
     end
     puts "|________________________\n\n"

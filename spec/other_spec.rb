@@ -1,5 +1,6 @@
 require './lib/start_menu'
 require './lib/dictionary'
+require './lib/action'
 
 RSpec.describe Action do
   describe 'Checking print_start_menu' do

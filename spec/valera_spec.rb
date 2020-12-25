@@ -1,33 +1,62 @@
 require './lib/valera'
 require './lib/action'
+require './lib/config_loader'
 
 RSpec.describe Valera do
   describe 'Checking initialization' do
-    test = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
-    it do
-      expect(test.stats['health'].should(eql(100)))
-      expect(test.stats['mana'].should(eql(0)))
-      expect(test.stats['health'].should(eql(100)))
-      expect(test.stats['money'].should(eql(400)))
-      expect(test.stats['fatigue'].should(eql(0)))
-      expect(test.stats['intellect'].should(eql(0)))
-      expect((test.is_death).should(eql(false)))
-    end
+    loader = ConfigLoader.new('./lib/action_config.yml', './lib/start_config.yml', './lib/limits_config.yml')
+    valera = Valera.new(loader.start, loader.limits)
+
+    it {
+      expect(valera.stats['health']).to eq(100)
+    }
+
+    it {
+      expect(valera.stats['mana']).to eq(0)
+    }
+
+    it {
+      expect(valera.stats['fun']).to eq(30)
+    }
+
+    it {
+      expect(valera.stats['money']).to eq(400)
+    }
+
+    it {
+      expect(valera.stats['fatigue']).to eq(0)
+    }
+
+    it {
+      expect(valera.stats['intellect']).to eq(0)
+    }
+
+    it {
+      expect(valera.is_death).to eq(false)
+    }
   end
 
   describe 'Checking limits & death' do
-    valera1 = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
-    valera2 = Valera.new('start', './lib/start_config.yml', './lib/limits_config.yml')
-    act_c = Action.new(1, valera1, './lib/action_config.yml')
+    loader = ConfigLoader.new('./lib/action_config.yml', './lib/start_config.yml', './lib/limits_config.yml')
+    valera1 = Valera.new(loader.start, loader.limits)
+    valera2 = Valera.new(loader.start, loader.limits)
+    act_c = Action.new(1, loader.actions, valera1)
     act_c.execute
-    act_m = Action.new(3, valera2, './lib/action_config.yml')
-    act_r = Action.new(7, valera2, './lib/action_config.yml')
+    act_m = Action.new(3, loader.actions, valera2)
+    act_r = Action.new(7, loader.actions, valera2)
     act_m.execute
     act_r.execute
-    it do
-      expect(valera1.stats['mana'].should(eql(0)))
-      expect((valera2.is_death).should(eql(true)))
-      expect((valera2.msg).should(eql('Валера заснул и не проснулся...')))
-    end
+
+    it {
+      expect(valera1.stats['mana']).to eq(0)
+    }
+
+    it {
+      expect(valera2.is_death).to eq(true)
+    }
+
+    it {
+      expect(valera2.msg).to eq('Валера заснул и не проснулся...')
+    }
   end
 end

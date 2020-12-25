@@ -3,7 +3,7 @@ require 'yaml'
 class Valera
   attr_accessor :stats, :is_death, :limits, :msg
 
-  def initialize(stats, limits, start = 'start')
+  def initialize(stats, limits, _start = 'start')
     @stats = stats
     @limits = limits
     @is_death = false
@@ -25,8 +25,7 @@ class Valera
 
   def check_limits
     @limits.each do |key, value|
-      param = key
-      check_limit_node(param, value)
+      check_limit_node(key, value)
       break if @is_death == true
     end
   end

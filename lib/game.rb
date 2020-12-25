@@ -11,15 +11,17 @@ class Game
     @valera = Valera.new(loader.start, loader.limits)
     choice_handler(0)
     system('reset')
-    menu = Menu.new(loader.actions, @valera)
-    while @valera.is_death == false
-      menu.print_stats
-      menu.print_options
-      message_action_selection
-      choice = gets.chomp.to_i
-      menu.choice_handler(choice)
-    end
+    @menu = Menu.new(loader.actions, @valera)
+    step while @valera.is_death == false
     @valera.print_death_message
+  end
+
+  def step
+    @menu.print_stats
+    @menu.print_options
+    message_action_selection
+    choice = gets.chomp.to_i
+    @menu.choice_handler(choice)
   end
 
   def message_action_selection
